@@ -12,57 +12,60 @@
 #     print(fruit.upper())
 
 
-#Brute Force 1 
-arr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
-# arr = [5, 1, 4, 1, 2, 5, 3]
-# arr = [5, 5, 5, 5, 5, 5]
-
-def remove_dup_sorted_array(arr):
-    result=[]
-    for i in arr: # O(n)
-        if i not in result: # O(n)
-            result.append(i) # O(1)
-
-    return result        
-
-
-print(remove_dup_sorted_array(arr))            
-
-# TC = O(n) * O(n) = O(n^2)
-# SC = O(n)      
-
-
-
-# Brute Force 2
-arr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
-# arr = [5, 1, 4, 1, 2, 5, 3]
-# arr = [5, 5, 5, 5, 5, 5]
-
-def remove_dup_sorted_array(arr):
-    seen=set()
-    result =[]
-    for i in arr: # O(n)
-        if i not in seen: # O(1)
-            seen.add(i)
-            result.append(i) # O(1)
-
-    return result        
-
-
-print(remove_dup_sorted_array(arr))      
-
-
-# # Optimal Solution
+# #Brute Force 1 
 # arr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+# # arr = [5, 1, 4, 1, 2, 5, 3]
+# # arr = [5, 5, 5, 5, 5, 5]
 
-# def remove_dup_sorted_array_optimal(arr):
-#     read = 1
-#     write = 0
-#     n = len(arr)
+# def remove_dup_sorted_array(arr):
+#     result=[]
+#     for i in arr: # O(n)
+#         if i not in result: # O(n)
+#             result.append(i) # O(1)
 
-#     if arr[read] == arr[write]:
+#     return result        
 
 
-# remove_dup_sorted_array_optimal(arr)    
+# print(remove_dup_sorted_array(arr))            
+
+# # TC = O(n) * O(n) = O(n^2)
+# # SC = O(n)      
+
+
+
+# # Brute Force 2
+# arr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+# # arr = [5, 1, 4, 1, 2, 5, 3]
+# # arr = [5, 5, 5, 5, 5, 5]
+
+# def remove_dup_sorted_array(arr):
+#     seen=set()
+#     result =[]
+#     for i in arr: # O(n)
+#         if i not in seen: # O(1)
+#             seen.add(i)
+#             result.append(i) # O(1)
+
+#     return result        
+
+
+# print(remove_dup_sorted_array(arr))      
+
+
+# Optimal Solution
+arr = [1, 2, 2,8]
+
+def remove_dup_sorted_array_optimal(arr):
+    
+    write = 0
+    n = len(arr)
+    for read in range(1,n):
+        if arr[read] != arr[write]:
+            write = write+1
+            arr[write] = arr[read]
+    return write + 1
+
+
+print(remove_dup_sorted_array_optimal(arr))
 
 
