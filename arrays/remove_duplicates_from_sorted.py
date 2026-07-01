@@ -53,18 +53,16 @@
 
 
 # Optimal Solution
-arr = [1, 2, 2,8]
+arr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
 
 def remove_dup_sorted_array_optimal(arr):
-    
     write = 0
-    n = len(arr)
-    for read in range(1,n):
-        if arr[read] != arr[write]:
-            write = write+1
+    for read in range(1,len(arr)):
+        if arr[write] != arr[read]:
+            write += 1
             arr[write] = arr[read]
-    return write + 1
 
+    return arr
 
 print(remove_dup_sorted_array_optimal(arr))
 
