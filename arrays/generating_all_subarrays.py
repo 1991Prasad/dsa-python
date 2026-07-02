@@ -9,6 +9,7 @@ def generating_all_subarrays(arr):
             for k in range(i,j+1):
                 
                 print(arr[k], end=" ")
+                
             print()
 
 
